@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="FrameMain">
+    <property name="height">300</property>
+    <property name="width">200</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+      <property name="sticky">s</property>
+    </layout>
+    <child>
+      <object class="ttk.Frame" id="FrameImage">
+        <property name="height">460</property>
+        <property name="relief">groove</property>
+        <property name="width">800</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="ipadx">5</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <rows>
+            <row id="0">
+              <property name="minsize">460</property>
+            </row>
+          </rows>
+          <columns>
+            <column id="0">
+              <property name="minsize">800</property>
+            </column>
+          </columns>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="LImage">
+            <property name="anchor">center</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="padx">5</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="FrameLeft">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="padx">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">w</property>
+        </layout>
+        <child>
+          <object class="tk.LabelFrame" id="FrameSearch">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">Search by tags</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="columnspan">1</property>
+              <property name="ipadx">5</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">2</property>
+              <property name="sticky">sw</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="LTag">
+                <property name="font">TkDefaultFont</property>
+                <property name="justify">center</property>
+                <property name="relief">flat</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Tag</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Entry" id="EAdd">
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">30</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="BAdd">
+                <property name="text" translatable="yes">Add</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="LSelectedTags">
+                <property name="text" translatable="yes">Selected tags</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Listbox" id="ListSelected">
+                <property name="cursor">arrow</property>
+                <property name="font">TkDefaultFont</property>
+                <property name="height">4</property>
+                <property name="relief">flat</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">4</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Radiobutton" id="RAny">
+                <property name="text" translatable="yes">Any</property>
+                <property name="value">Any</property>
+                <property name="variable">string:VarAny</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">25</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Radiobutton" id="RAll">
+                <property name="text" translatable="yes">All</property>
+                <property name="value">All</property>
+                <property name="variable">string:VarAny</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">25</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="BConfirm">
+                <property name="text" translatable="yes">Confirm</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="BClear">
+                <property name="text" translatable="yes">Clear</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">6</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.LabelFrame" id="FrameTags">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">Tags</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">5</property>
+            </layout>
+            <child>
+              <object class="tk.Listbox" id="ListTags">
+                <property name="height">5</property>
+                <property name="setgrid">false</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="padx">35</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nw</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Frame" id="Frame_1">
+                <property name="height">10</property>
+                <property name="width">1</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.LabelFrame" id="FrameFile">
+            <property name="height">200</property>
+            <property name="text" translatable="yes">Input file</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">6</property>
+            </layout>
+            <child>
+              <object class="pygubu.builder.widgets.pathchooserinput" id="PathInput">
+                <property name="type">file</property>
+                <bind add="True" handler="file_selected" sequence="&lt;&lt;PathChooserPathChanged&gt;&gt;" />
+                <layout>
+                  <property name="column">0</property>
+                  <property name="ipadx">0</property>
+                  <property name="ipady">2</property>
+                  <property name="padx">15</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="Frame_2">
+            <property name="height">10</property>
+            <property name="width">1</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">8</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="FrameResults">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="LResults">
+            <property name="text" translatable="yes">Results: </property>
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">50</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">n</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Listbox" id="ListResults">
+            <property name="height">3</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+              <property name="sticky">n</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="FrameNext">
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout>
+              <property name="column">2</property>
+              <property name="padx">10</property>
+              <property name="pady">5</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="BPrev">
+                <property name="text" translatable="yes">Prev</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="BNext">
+                <property name="text" translatable="yes">Next</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
