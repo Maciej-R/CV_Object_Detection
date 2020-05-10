@@ -1,6 +1,7 @@
 import pygubu
 import tkinter as tk
 import Intermediary
+from tkinter import Scrollbar
 
 
 class UI(pygubu.TkApplication):
@@ -49,8 +50,20 @@ class UI(pygubu.TkApplication):
         radio_all = self.builder.get_object("RAll")
         radio_all.bind("<Button-1>", self.intermediary.rany)
 
-        file_input = self.builder.get_object("PathInput")
-        file_input.bind("<<PathChooserPathChanged>>", self.intermediary.file_input)
+        file_input = self.builder.get_object("BFile")
+        file_input.bind("<Button-1>", self.intermediary.choose_file)
+
+        bdir = self.builder.get_object("BDir")
+        bdir.bind("<Button-1>", self.intermediary.choose_dir)
+
+        bprev = self.builder.get_object("BPrev")
+        bprev.bind("<Button-1>", self.intermediary.prev_image)
+
+        bnext = self.builder.get_object("BNext")
+        bnext.bind("<Button-1>", self.intermediary.next_image)
+
+        lbr = self.builder.get_object("ListResults")
+        lbr.bind("<Double-Button-1>", self.intermediary.listbox_image)
 
 
 if __name__ == "__main__":

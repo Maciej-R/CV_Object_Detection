@@ -18,7 +18,7 @@ class DataBase:
                     create table general(
                     image_id integer primary key,
                     path text unique,
-                    hash varchar(64)) 
+                    hash varchar(64));
                     ''')
 
         db.execute('''
@@ -188,6 +188,29 @@ class DataBase:
         """
 
         return DataBase.db.execute(f"select (path) from general where image_id = {image_id}").fetchall()[0][0]
+
+    @staticmethod
+    def exists(*, image_id=None, pth=None):
+
+        if image_id is not None and pth is not None:
+            raise AttributeError
+
+        cnt = 0
+        res = True
+        if image_id is not None:
+            try:
+                cnt = DataBase.db.execute(f"select count(1) from general where image_id = {image_id}").fetchall()[0][0]
+            except sql.Error:
+                res = False
+        else:
+            try:
+                cnt = DataBase.db.execute(f"select count(1) from general where pth = {pth}").fetchall()[0][0]
+            except sql.Error:
+                res = False
+        if cnt == 0:
+            res = False
+
+        return res
 
 
 class Test(unittest.TestCase):
